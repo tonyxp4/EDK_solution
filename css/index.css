@@ -1,7 +1,6 @@
     body {
       font-family: 'Arial', sans-serif;
       background-color: #f4f7fc;
-      padding-top: 20px;
     }
 
     .feed-item {
@@ -24,4 +23,12 @@
       background-color: #f8f9fa;
       text-align: center;
       padding: 15px 0;
+    }
+    .logo {
+      width: 50px;
+      border-radius: 15px;
+    }
+    .navcolor{
+      background-color: aqua;
+      border-radius: 3px;
     }
