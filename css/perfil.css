@@ -21,3 +21,11 @@
             background-color: #e9ecef;
             border-color: #dee2e6 #dee2e6 #fff;
         }
+        .logo {
+            width: 50px;
+            border-radius: 100%;
+        }
+        .ftop {
+            width: 90px;
+            border-radius: 100%;
+        }
