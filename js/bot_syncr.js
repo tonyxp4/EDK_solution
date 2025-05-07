@@ -17,12 +17,12 @@ async function enviar() {
     input.value = '';
 
     try {
-    const resposta = await fetch('http://localhost:8000/', {
+    const resposta = await fetch('http://127.0.0.1:5000/chat', {
         method: 'POST',
         headers: {
         'Content-Type': 'application/json'
         },
-        body: JSON.stringify({ pergunta })
+        body: JSON.stringify({ mensagem: pergunta })
     });
 
     const dados = await resposta.json();
