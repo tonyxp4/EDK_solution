@@ -1,0 +1,142 @@
+body {
+  background-color: #f0f2f5;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.chat-container {
+  max-width: 700px;
+  margin: 40px auto;
+  background-color: #ffffff;
+  border-radius: 15px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  height: 85vh;
+  overflow: hidden;
+}
+
+.chat-header {
+  display: flex;
+  align-items: center;
+  padding: 15px;
+  border-bottom: 1px solid #dee2e6;
+  background-color: #e9ecef;
+}
+
+.chat-header .avatar-wrapper {
+  position: relative;
+  width: 50px;
+  height: 50px;
+  margin-right: 15px;
+}
+
+.chat-header .avatar-wrapper img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.status-indicator {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 12px;
+  height: 12px;
+  background-color: #28a745;
+  border: 2px solid white;
+  border-radius: 50%;
+}
+
+.chat-header .info {
+  flex: 1;
+}
+
+.chat-header .info h5 {
+  margin: 0;
+}
+
+.chat-header .info small {
+  color: #6c757d;
+}
+
+#chat {
+  flex-grow: 1;
+  padding: 20px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.message {
+  display: flex;
+  align-items: flex-end;
+  gap: 10px;
+}
+
+.message.user {
+  flex-direction: row-reverse;
+}
+
+.message.bot .text {
+  background-color: #e9ecef;
+  color: #343a40;
+}
+
+.message.user .text {
+  background-color: #d1e7dd;
+  color: #0f5132;
+}
+
+.avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.text {
+  max-width: 70%;
+  padding: 10px 15px;
+  border-radius: 20px;
+  word-wrap: break-word;
+}
+
+.chat-input {
+  display: flex;
+  border-top: 1px solid #dee2e6;
+  padding: 10px;
+}
+
+#pergunta {
+  flex: 1;
+  border: 1px solid #ced4da;
+  border-radius: 20px;
+  padding: 10px 15px;
+}
+
+#pergunta:focus {
+  outline: none;
+  border-color: #86b7fe;
+}
+
+#enviar-btn {
+  margin-left: 10px;
+  padding: 10px 20px;
+  border: none;
+  background-color: #0d6efd;
+  color: white;
+  border-radius: 20px;
+  cursor: pointer;
+}
+
+#enviar-btn:hover {
+  background-color: #0b5ed7;
+}
+
+#typing-indicator {
+  padding-left: 20px;
+  font-style: italic;
+  color: #6c757d;
+}
