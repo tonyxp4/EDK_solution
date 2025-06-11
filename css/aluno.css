@@ -1,34 +1,725 @@
-    body {
-      font-family: 'Arial', sans-serif;
-      background-color: #f4f7fc;
+
+  body {
+      font-family: 'Inter', sans-serif;
+      background-color: #f0f2f5;
+      /* Fundo cinza claro para um visual tipo Facebook */
     }
 
+    /* Estilização da barra de navegação */
+    .navcolor {
+      background-color: #ffffff;
+      /* Fundo branco para a navbar (como no Facebook) */
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      /* Sombra sutil para profundidade */
+      padding: 0.5rem 1rem;
+      /* Ajuste de padding */
+      position: sticky;
+      /* Torna a navbar fixa no topo */
+      top: 0;
+      z-index: 1020;
+      /* Garante que ela fique acima de outros elementos */
+    }
+
+    .navbar-brand {
+      display: flex;
+      align-items: center;
+      color: #1c1e21 !important;
+      /* Cor do texto para a marca */
+      font-weight: bold;
+      font-size: 1.5rem;
+      /* Texto da marca maior */
+      margin-right: 1.5rem;
+      /* Espaço maior para a barra de pesquisa */
+    }
+
+    .navbar-brand .logo {
+      margin-right: 10px;
+      border-radius: 50%;
+      /* Logo circular */
+      border: 2px solid rgba(0, 0, 0, 0.1);
+      /* Borda leve ao redor do logo */
+      width: 40px;
+      /* Tamanho fixo para o logo */
+      height: 40px;
+      object-fit: cover;
+      /* Garante que a imagem preencha a área */
+    }
+
+    /* Estilos dos links principais da navegação (ícones) */
+    .main-nav-icons .nav-link {
+      color: #65676b !important;
+      /* Cor dos ícones principais */
+      font-size: 1.25rem;
+      /* Tamanho maior para os ícones */
+      padding: 0.75rem 1.25rem !important;
+      /* Preenchimento para área de clique */
+      transition: background-color 0.3s ease, border-radius 0.3s ease;
+      border-radius: 0.5rem;
+      /* Cantos arredondados para a área de hover */
+    }
+
+    .main-nav-icons .nav-link:hover {
+      background-color: #f0f2f5;
+      /* Fundo claro no hover */
+      border-radius: 0.75rem;
+    }
+
+    .main-nav-icons .nav-item {
+      margin: 0 0.5rem;
+      /* Espaçamento entre os itens de navegação */
+    }
+
+    /* Estilo do botão de alternância da barra de navegação (o ícone de 3 barras) */
+    .navbar-toggler {
+      border: none;
+      /* Remove a borda padrão */
+      padding: 0.5rem;
+      /* Adiciona preenchimento para uma melhor área de clique */
+      background-color: #e4e6eb;
+      /* Fundo cinza para o botão */
+      border-radius: 50%;
+      /* Faz o botão ser circular */
+      width: 40px;
+      /* Largura do botão */
+      height: 40px;
+      /* Altura do botão */
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background-color 0.2s ease;
+    }
+
+    .navbar-toggler:hover {
+      background-color: #d8dadf;
+      /* Escurece no hover */
+    }
+
+    .navbar-toggler-icon {
+      background-image: none;
+      /* Remove a imagem de fundo padrão do ícone */
+      width: 1.2em;
+      /* Ajusta a largura do ícone de barras */
+      height: 1.2em;
+      /* Ajusta a altura do ícone de barras */
+      display: flex;
+      /* Para centralizar o ícone Font Awesome */
+      align-items: center;
+      justify-content: center;
+    }
+
+    .navbar-toggler-icon::after {
+      content: '\f0c9';
+      /* Unicode do ícone de barras do Font Awesome */
+      font-family: "Font Awesome 5 Free";
+      /* Especifica a fonte Font Awesome */
+      font-weight: 900;
+      /* Usa o peso do ícone sólido */
+      color: #1c1e21;
+      /* Cor preta para o ícone das barras */
+      font-size: 1.1rem;
+      /* Tamanho do ícone das barras */
+    }
+
+    /* Estilo da barra de pesquisa na navbar */
+    .navbar-search-input {
+      border-radius: 25px !important;
+      /* Input em formato de pílula */
+      background-color: #f0f2f5 !important;
+      border: none !important;
+      padding: 0.75rem 1rem;
+      width: 100%;
+    }
+
+    /* Removendo o background-image da lupa */
+    .navbar-search-input::before {
+      content: none !important;
+    }
+
+    .navbar-search-icon {
+      display: none !important;
+    }
+
+    /* Estilo dos ícones do lado direito da navbar (sino, perfil) */
+    .right-nav-icons .nav-link {
+      background-color: #e4e6eb;
+      border-radius: 50%;
+      width: 40px;
+      height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #1c1e21;
+      /* Cor dos ícones */
+      font-size: 1.1rem;
+      margin-left: 0.5rem;
+      transition: background-color 0.2s ease;
+    }
+
+    .right-nav-icons .nav-link:hover {
+      background-color: #d8dadf;
+    }
+
+    .right-nav-icons .nav-link img {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+
+    /* Estilo para o Offcanvas (menu lateral) */
+    .offcanvas-header {
+      background-color: #ffffff;
+      border-bottom: 1px solid #eee;
+      padding: 1.5rem;
+    }
+
+    .offcanvas-title {
+      color: #1c1e21;
+      font-weight: 600;
+      font-size: 1.5rem;
+    }
+
+    .offcanvas-body {
+      background-color: #f0f2f5;
+      padding: 1rem;
+    }
+
+    /* Estilo dos links no menu colapsado (agora no offcanvas) */
+    .offcanvas .collapse-nav-links .nav-item {
+      margin-bottom: 0.5rem;
+    }
+
+    .offcanvas .collapse-nav-links .nav-link {
+      color: #1c1e21 !important;
+      font-size: 1.05rem;
+      padding: 0.8rem 1rem !important;
+      border-radius: 0.75rem;
+      /* Mais arredondado para parecer um botão */
+      display: flex;
+      align-items: center;
+      transition: background-color 0.2s ease, transform 0.1s ease, box-shadow 0.2s ease; /* Adicionado box-shadow na transição */
+      font-weight: 500;
+    }
+
+    .offcanvas .collapse-nav-links .nav-link:hover {
+      background-color: #e4e6eb;
+      transform: translateX(3px);
+      /* Leve movimento no hover */
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.08); /* Sombra sutil no hover */
+    }
+
+    .offcanvas .collapse-nav-links .nav-link i {
+      margin-right: 12px;
+      /* Mais espaço para o ícone */
+      font-size: 1.25rem;
+      /* Ícones maiores */
+      color: #4e73df;
+      /* Cor azul para os ícones do menu lateral */
+    }
+
+    /* Container principal para o layout de 3 colunas (chat, feed, sugestões) */
+    .main-layout-outer-container {
+      /* Usado para centralizar o conteúdo principal */
+      display: flex;
+      justify-content: center;
+      padding: 20px 0;
+      width: 100%;
+    }
+
+    .main-layout-inner-row {
+        display: flex;
+        flex-wrap: nowrap; /* Impede que as colunas quebrem linha */
+        align-items: flex-start; /* Alinha o topo dos elementos */
+        max-width: 1300px; /* Largura máxima para a linha de conteúdo */
+        width: 100%; /* Ocupa 100% da largura do pai */
+        margin: 0; /* Remove margens padrão de row */
+    }
+
+
+    /* Coluna do Chat (visível apenas em telas grandes) */
+    .chat-sidebar-col {
+      width: 300px;
+      /* Largura fixa */
+      flex-shrink: 0;
+      margin-right: 20px;
+      /* Espaçamento entre as colunas */
+      display: none;
+      /* Oculto por padrão, visível com d-lg-flex */
+    }
+
+    /* Conteúdo do Chat */
+    .chat-sidebar {
+      background-color: #fff;
+      border-radius: 0.75rem;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+      display: flex;
+      flex-direction: column;
+      height: calc(100vh - 100px);
+      position: sticky;
+      top: 80px;
+      overflow: hidden;
+    }
+
+    .chat-header {
+      padding: 1rem;
+      background-color: #4e73df;
+      color: white;
+      font-weight: bold;
+      font-size: 1.1rem;
+      border-top-left-radius: 0.75rem;
+      border-top-right-radius: 0.75rem;
+      text-align: center;
+    }
+
+    .chat-messages {
+      flex-grow: 1;
+      padding: 1rem;
+      overflow-y: auto;
+      background-color: #f8f9fa;
+    }
+
+    .chat-message {
+      margin-bottom: 0.75rem;
+      padding: 0.5rem 0.75rem;
+      border-radius: 0.5rem;
+      max-width: 80%;
+    }
+
+    .chat-message.user {
+      background-color: #dcf8c6;
+      margin-left: auto;
+    }
+
+    .chat-message.ai {
+      background-color: #e2e3e5;
+      margin-right: auto;
+    }
+
+    .chat-input {
+      padding: 1rem;
+      border-top: 1px solid #eee;
+      background-color: #fff;
+    }
+
+    .chat-input input {
+      border-radius: 20px;
+      padding-right: 40px;
+    }
+
+    .chat-input .input-group-text {
+      background-color: transparent;
+      border: none;
+      position: absolute;
+      right: 5px;
+      top: 50%;
+      transform: translateY(-50%);
+      cursor: pointer;
+      color: #4e73df;
+      z-index: 5;
+    }
+
+    /* Coluna do Feed de Publicações (coluna central) */
+    .feed-column-col {
+      flex-grow: 1;
+      max-width: 600px;
+      /* Largura máxima para o feed principal */
+      margin: 0 10px;
+      /* Espaçamento entre as colunas */
+    }
+
+    .section-title {
+      color: #343a40;
+      margin-bottom: 30px;
+      text-align: center;
+      font-weight: 700;
+      font-size: 2.2rem;
+      position: relative;
+    }
+
+    .section-title::after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 60px;
+      height: 3px;
+      background-color: #4e73df;
+      border-radius: 2px;
+    }
+
+    /* Estilo dos cartões de item do feed */
     .feed-item {
       margin-bottom: 20px;
     }
 
-    .feed-item .card {
-      border-radius: 10px;
+    .card {
+      border-radius: 0.75rem;
+      overflow: hidden;
+      border: none;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+      transition: box-shadow 0.2s ease;
     }
 
-    .feed-item .card-header {
-      font-weight: bold;
+    .card:hover {
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
     }
 
-    .feed-item .card-body p {
-      font-size: 16px;
+    /* Cabeçalho da publicação (usuário, carimbo de data/hora) */
+    .post-header {
+      display: flex;
+      align-items: center;
+      padding: 1rem;
+      background-color: #fff;
+      border-bottom: 1px solid #eee;
+      position: relative;
     }
 
+    .post-avatar-container {
+      position: relative;
+      margin-right: 15px; /* Espaço à direita da imagem de perfil */
+    }
+
+    .post-avatar {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 2px solid #ddd;
+    }
+
+    .online-status {
+      position: absolute;
+      bottom: 0px;
+      right: 0px;
+      width: 12px;
+      height: 12px;
+      background-color: #31a24c;
+      /* Verde online */
+      border-radius: 50%;
+      border: 2px solid #fff;
+      /* Borda branca */
+      animation: pulse 1.5s infinite;
+    }
+
+    @keyframes pulse {
+      0% {
+        box-shadow: 0 0 0 0 rgba(49, 162, 76, 0.7);
+      }
+
+      70% {
+        box-shadow: 0 0 0 8px rgba(49, 162, 76, 0);
+      }
+
+      100% {
+        box-shadow: 0 0 0 0 rgba(49, 162, 76, 0);
+      }
+    }
+
+    .post-info {
+      text-align: left;
+    }
+
+    .post-info h6 {
+      margin-bottom: 0;
+      font-weight: 600;
+      color: #333;
+    }
+
+    .post-info small {
+      color: #65676b;
+      font-size: 0.85rem;
+    }
+
+    /* Conteúdo do corpo da publicação */
+    .card-body {
+      padding: 1rem;
+      background-color: #fff;
+    }
+
+    .card-body p {
+      margin-bottom: 1rem;
+      color: #1c1e21;
+      font-size: 0.95rem;
+    }
+
+    .post-media {
+      width: 100%;
+      max-height: 450px;
+      object-fit: cover;
+      border-radius: 0.5rem;
+      margin-top: 0.5rem;
+    }
+
+    .post-video-wrapper {
+      border-radius: 0.5rem;
+      overflow: hidden;
+      margin-top: 0.5rem;
+    }
+
+    /* Seção de reações */
+    .post-reactions {
+      padding: 0.75rem 1rem;
+      background-color: #fff;
+      border-top: 1px solid #eee;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.85rem;
+      color: #65676b;
+    }
+
+    .reaction-counts i {
+      margin-right: 5px;
+      color: #4e73df;
+    }
+
+    /* Seção de ações (Gostar, Comentar, Partilhar) */
+    .post-actions {
+      display: flex;
+      justify-content: space-around;
+      padding: 0.5rem 1rem;
+      background-color: #fff;
+      border-top: 1px solid #eee;
+    }
+
+    .post-actions .btn {
+      flex: 1;
+      margin: 0 5px;
+      background-color: transparent;
+      border: none;
+      color: #65676b;
+      font-weight: 600;
+      padding: 0.75rem 0;
+      border-radius: 0.5rem;
+      transition: background-color 0.2s ease, color 0.2s ease;
+    }
+
+    .post-actions .btn:hover {
+      background-color: #f0f2f5;
+      color: #1c1e21;
+    }
+
+    .post-actions .btn i {
+      margin-right: 8px;
+    }
+
+    /* Seção "Criar Publicação" */
+    .create-post-card {
+      margin-bottom: 30px;
+      padding: 1.5rem;
+      background-color: #fff;
+      border-radius: 0.75rem;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .create-post-card .user-avatar {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-right: 10px;
+    }
+
+    .create-post-card .input-group {
+      width: 100%;
+      margin-bottom: 1rem;
+    }
+
+    .create-post-card .form-control {
+      border-radius: 25px;
+      background-color: #f0f2f5;
+      border: 1px solid #e4e6eb;
+      padding: 0.75rem 1.25rem;
+      font-size: 0.95rem;
+    }
+
+    .create-post-card .d-flex {
+      width: 100%;
+      justify-content: space-around;
+      margin-top: 1rem;
+    }
+
+    .create-post-card .btn-post-action {
+      flex: 1;
+      margin: 0 5px;
+      background-color: transparent;
+      border: none;
+      color: #65676b;
+      font-weight: 600;
+      padding: 0.75rem 0;
+      border-radius: 0.5rem;
+      transition: background-color 0.2s ease, color 0.2s ease;
+    }
+
+    .create-post-card .btn-post-action:hover {
+      background-color: #f0f2f5;
+      color: #1c1e21;
+    }
+
+    .create-post-card .btn-post-action i {
+      margin-right: 8px;
+    }
+
+    /* Coluna de Sugestões de Escolas (lateral direita) */
+    .schools-sidebar-col {
+      width: 250px;
+      /* Largura fixa */
+      flex-shrink: 0;
+      margin-left: 20px;
+      /* Espaçamento entre as colunas */
+      display: none;
+      /* Oculto por padrão, visível com d-lg-block */
+    }
+
+    /* Conteúdo das Sugestões de Escolas */
+    .schools-sidebar {
+      background-color: #fff;
+      border-radius: 0.75rem;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+      padding: 1rem;
+      height: fit-content;
+      position: sticky;
+      top: 80px;
+    }
+
+    .schools-sidebar h6 {
+      font-weight: 600;
+      color: #1c1e21;
+      margin-bottom: 1rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 1px solid #eee;
+    }
+
+    .school-item {
+      display: flex;
+      align-items: center;
+      margin-bottom: 1rem;
+    }
+
+    .school-item img {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-right: 10px;
+      border: 2px solid #ddd;
+    }
+
+    .school-item .school-info {
+      flex-grow: 1;
+    }
+
+    .school-item .school-info h6 {
+      margin: 0;
+      font-size: 0.95rem;
+      font-weight: 500;
+      color: #1c1e21;
+      border-bottom: none;
+      padding-bottom: 0;
+    }
+
+    .school-item .btn-follow {
+      background-color: #4e73df;
+      color: white;
+      border-radius: 0.5rem;
+      padding: 0.4rem 0.8rem;
+      font-size: 0.8rem;
+      font-weight: 600;
+      transition: background-color 0.2s ease;
+    }
+
+    .school-item .btn-follow:hover {
+      background-color: #3b5cb8;
+    }
+
+    /* Estilo do Rodapé */
     footer {
-      background-color: #f8f9fa;
+      background-color: #343a40;
+      color: #f8f9fa;
       text-align: center;
-      padding: 15px 0;
+      padding: 30px 0;
+      margin-top: 50px;
+      font-size: 0.95rem;
+      border-top-left-radius: 0.75rem;
+      border-top-right-radius: 0.75rem;
     }
-    .logo {
-      width: 50px;
-      border-radius: 10px;
+
+    footer p {
+      margin-bottom: 8px;
     }
-    .navcolor{
-      background-color: aqua;
-      border-radius: 3px;
+
+    /* Ajustes responsivos */
+    @media (min-width: 992px) { /* Large (lg) breakpoint and up */
+      .chat-sidebar-col,
+      .schools-sidebar-col {
+        display: block !important; /* Show sidebars on desktop */
+      }
+    }
+
+    @media (max-width: 991.98px) {
+      .navbar-brand {
+        margin-right: 0.5rem;
+      }
+
+      .navbar-search-input {
+        max-width: 200px;
+      }
+
+      .main-nav-icons {
+        display: none !important;
+      }
+
+      .chat-sidebar-col,
+      .schools-sidebar-col {
+        display: none !important; /* Hide sidebars on smaller screens */
+      }
+
+      .feed-column-col {
+        flex-grow: 1;
+        max-width: 100%; /* Feed takes full width on small screens */
+        margin: 0;
+      }
+
+      .main-layout-inner-row {
+          flex-wrap: wrap; /* Permite que as colunas quebrem linha */
+          padding: 0 10px; /* Adiciona padding horizontal no mobile */
+      }
+
+      /* Barra de pesquisa mobile dentro do offcanvas */
+      .navbar-search-input-mobile {
+        width: 90%;
+        margin: 1rem auto;
+      }
+    }
+
+    @media (max-width: 575.98px) {
+      .navbar-brand span {
+        font-size: 1.2rem;
+      }
+
+      .section-title {
+        font-size: 1.8rem;
+      }
+
+      .navbar-toggler {
+        width: 36px;
+        height: 36px;
+      }
+
+      .navbar-toggler-icon {
+        font-size: 0.9rem;
+      }
+
+      .post-actions {
+        flex-direction: column;
+      }
+
+      .post-actions .btn {
+        margin: 5px 0;
+        width: 100%;
+      }
     }
